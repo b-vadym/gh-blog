@@ -1,0 +1,5 @@
+{% for post in pagination %}
+    <a href="{{ path('vadim_blog_post_show', {id: post.id}) }}">{{ post.title }}</a>
+{% endfor %}
+
+{{ knp_pagination_render(pagination) }}

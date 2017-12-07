@@ -1,0 +1,15 @@
+vadim_blog_post_list:
+    path:     /
+    defaults: { _controller: VadimBlogBundle:Post:list }
+
+vadim_blog_post_create:
+    path:     /create
+    defaults: { _controller: VadimBlogBundle:Post:create }
+
+vadim_blog_post_show:
+    path:     /show/{id}
+    defaults: { _controller: VadimBlogBundle:Post:show }
+
+vadim_blog_tag_create:
+    path:     /tag/create
+    defaults: { _controller: VadimBlogBundle:Tag:create }
