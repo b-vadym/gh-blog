@@ -1,0 +1,9 @@
+\Vadim\BlogBundle\Entity\User:
+    user:
+        email: user@example.com
+        plainPassword: testpass
+        roles: [ROLE_USER]
+    admin:
+        email: admin@example.com
+        plainPassword: testpass
+        roles: [ROLE_USER, ROLE_ADMIN]

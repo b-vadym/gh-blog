@@ -13,3 +13,19 @@ vadim_blog_post_show:
 vadim_blog_tag_create:
     path:     /tag/create
     defaults: { _controller: VadimBlogBundle:Tag:create }
+
+vadim_blog_security_login:
+    path: /login
+    defaults: { _controller: VadimBlogBundle:Security:login }
+
+vadim_blog_security_logout:
+    path: /logout
+    defaults: { _controller: VadimBlogBundle:Security:logout }
+
+vadim_blog_registration:
+    path: /register
+    defaults: { _controller: VadimBlogBundle:UserRegistration:registration }
+
+vadim_blog_admin_post_list:
+    path: /admin/post
+    defaults: { _controller: VadimBlogBundle:Admin\PostAdmin:list }

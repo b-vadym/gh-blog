@@ -1,4 +1,8 @@
-show
+{% extends '@VadimBlog/base.html.twig' %}
 
-{{ post.title }}
-{{ post.body }}
+{% block body %}
+    show
+
+    {{ post.title }}
+    {{ post.body }}
+{% endblock %}
