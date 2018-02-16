@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as SymfonyConstraints;
+use Symfony\Component\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass="Vadim\BlogBundle\Repository\PostRepository")
@@ -18,9 +19,37 @@ class Post
     use TimestampableEntityTrait;
 
     /**
+     * @var int|null
+     * @ORM\Id()
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @Serializer\Groups({"full"})
+     */
+    protected $id;
+
+    /**
+     * @var \DateTime|null
+     * @ORM\Column(type="datetime")
+     * @SymfonyConstraints\DateTime()
+     * @Gedmo\Timestampable(on="create")
+     * @Serializer\Groups({"full"})
+     */
+    protected $createdAt;
+
+    /**
+     * @var \DateTime|null
+     * @ORM\Column(type="datetime")
+     * @SymfonyConstraints\DateTime()
+     * @Gedmo\Timestampable(on="update")
+     * @Serializer\Groups({"full"})
+     */
+    protected $updatedAt;
+
+    /**
      * @var string|null
      * @ORM\Column(type="string")
      * @SymfonyConstraints\NotBlank()
+     * @Serializer\Groups({"full"})
      */
     private $title;
 
@@ -28,6 +57,7 @@ class Post
      * @var string|null
      * @ORM\Column(type="string")
      * @SymfonyConstraints\NotBlank()
+     * @Serializer\Groups({"full"})
      */
     private $body;
 
@@ -35,6 +65,7 @@ class Post
      * @var bool
      * @ORM\Column(type="boolean")
      * @SymfonyConstraints\NotNull()
+     * @Serializer\Groups({"full"})
      */
     private $isPublished;
 

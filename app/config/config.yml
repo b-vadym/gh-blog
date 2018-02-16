@@ -30,6 +30,9 @@ framework:
     assets: ~
     php_errors:
         log: true
+    property_info:
+        enabled: true
+    serializer: { enable_annotations: true }
 
 # Twig Configuration
 twig:
@@ -72,3 +75,29 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+
+nelmio_api_doc:
+    models: { use_jms: false }
+    areas:
+        path_patterns: # an array of regexps
+            - ^/api/
+    documentation:
+        info:
+            title: Example Blog
+            description: geek hub examole blog!
+            version: 1.0.0
+        securityDefinitions:
+            api_key:
+                type: apiKey
+                description: Your Json Web Token
+                name:  Authorization
+                in: header
+        security:
+            - api_key: []
+
+fos_rest:
+    routing_loader:
+        default_format: json
+    view:
+        view_response_listener: true
+
